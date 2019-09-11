@@ -1,7 +1,7 @@
-require "beer_finder/version"
-require "beer_finder/api"
-require "beer_finder/cli"
-require "beer_finder/beer"
+require_relative "beer_finder/version"
+require_relative "beer_finder/api"
+require_relative "beer_finder/cli"
+require_relative "beer_finder/beer"
 
 module BeerFinder
   class Error < StandardError; end

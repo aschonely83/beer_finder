@@ -8,12 +8,12 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Adam Schonely"]
   spec.email         = ["aschonely@gmail.com"]
 
-  spec.summary       = %q{A CLI gem used to navigate through Open Brewery DB API.}
-  spec.description   = %q{A CLI gem to navigate through Open Brewery DB API.}
+  spec.summary       = %q{Displays a list of breweies through Open Brewery DB API.}
+  spec.description   = %q{CLI program for navigating breweries through Open Brewery DB API.}
   spec.homepage      = "https://github.com/aschonely83/beer_finder"
   spec.license       = "MIT"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/aschonely83/beer_finder"
@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  # spec.bindir        = "exe"
+  spec.executables   = ["beer_finder"]
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 2.0"
