@@ -11,5 +11,4 @@ require_relative "beer_finder"
 # Pry.start
 
 require "irb"
-
 IRB.start(__FILE__)
