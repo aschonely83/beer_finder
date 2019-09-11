@@ -8,7 +8,7 @@ module BeerFinder
   
     def menu
       puts <<-MENU
-      1. Beer List
+      1. Brewery
       2. Location
       type "exit" or "quit" at any time to leave program.
       MENU
