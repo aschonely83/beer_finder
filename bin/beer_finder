@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+
 require "bundler"
 require "bundler/setup"
-require_relative "beer_finder"
+require "./lib/beer_finder"
+
+BeerFinder::CLI.new.call

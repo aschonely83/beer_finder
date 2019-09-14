@@ -1,5 +1,5 @@
-module BeerFinder
-  class CLI
+class BeerFinder::CLI 
+
     def call
       puts "Welcome to the Beer Finder."
       @input = nil
@@ -26,6 +26,5 @@ module BeerFinder
         "Not a valid option"
       end
       end
-    end      
-  end  
-end
+    end        
+  end
