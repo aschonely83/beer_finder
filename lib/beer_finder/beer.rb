@@ -1,7 +1,7 @@
 module BeerFinder
     class Beer
 
-        attr_reader :name, :state
+        attr_reader :name, :state, :link
 
         @@all = []
 
@@ -9,9 +9,10 @@ module BeerFinder
             @@all
         end    
 
-      def initialize(name, state)
+      def initialize(name, state, link)
         @name = name
         @state = state
+        @link = link 
         @@all << self
       end
     end    

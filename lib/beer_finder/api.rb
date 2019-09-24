@@ -1,10 +1,13 @@
+require "open-uri"
+require "json"
 require "pry"
 module BeerFinder
     class API
       
-      def self.get_brewery(state)
-        response = HTTParty.get("https://api.openbrewerydb.org/breweries?by_state=#{state}")
-        binding.pry
+      def list_breweries(state)
+         response = open("https://api.openbrewerydb.org/breweries?by_state=#{state}").read
+         data = JSON.parse(response)
+         data["data"]
       end  
     end
 end
