@@ -12,5 +12,6 @@ module BeerFinder
       
       def import
         list_breweries.collect {|b| Beer.new_from_hash(b)}
+      end
     end
 end
