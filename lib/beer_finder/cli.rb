@@ -8,17 +8,17 @@ class BeerFinder::CLI
   
     def menu
       puts <<-MENU
-      1. Brewery
-      2. Location
+      1. Brewery by State
+      2. Website
       type "exit" or "quit" at any time to leave program.
       MENU
       while @input != "exit" && @input != "quit"
       @input = gets.strip
       case @input
       when "1"
-        beer_list
+        puts "The breweries in your state:" 
       when "2"
-        location
+        puts "The webiste for the brewery is:"
       when "exit" || "quit"
         puts "Thank you, take care."
       break
