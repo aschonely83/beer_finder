@@ -5,9 +5,12 @@ module BeerFinder
     class API
       
       def list_breweries(state)
-         response = open("https://api.openbrewerydb.org/breweries?by_state=#{state}").read
-         data = JSON.parse(response)
-         data["data"]
-      end  
+         data = open("https://api.openbrewerydb.org/breweries?by_state=#{state}").read
+         response = JSON.parse(data)
+         response["responses"]
+      end
+      
+      def import
+        list_breweries.collect {|b| Beer.new_from_hash(b)}
     end
 end
