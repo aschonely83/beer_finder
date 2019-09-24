@@ -1,19 +1,18 @@
-module BeerFinder
-    class Beer
+class BeerFinder::Beer
 
-        attr_reader :name, :state, :link
+  attr_reader :name, :state, :link
 
-        @@all = []
+  @@all = []
 
-        def self.all
-            @@all
-        end    
+  def self.all
+    @@all
+  end    
 
-      def initialize(name, state, link)
-        @name = name
-        @state = state
-        @link = link 
-        @@all << self
-      end
-    end    
-end   
+  def initialize(name, state, link)
+    @name = name
+    @state = state
+    @link = link 
+    @@all << self
+  end
+end    
+   
