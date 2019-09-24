@@ -4,27 +4,29 @@ class BeerFinder::CLI
       puts "Welcome to the Beer Finder."
       @input = nil
       menu
+      while @input != "exit" 
+        @input = gets.strip
+        if  @input == "1"
+          puts "The breweries in your state:" 
+        elsif @input == "2"
+          puts "The webiste for the brewery is:"
+        elsif @input == "menu"
+          menu
+        elsif @input == "exit" 
+          puts "Thank you, have a nice day."
+        break
+        else
+          puts "Not a valid option, select 1, 2, or exit "
+        end
+      end
     end
   
     def menu
       puts <<-MENU
       1. Brewery by State
       2. Website
-      type "exit" or "quit" at any time to leave program.
+      type "exit" at any time to leave program.
+      type "menu" to return to the menu at any time.
       MENU
-      while @input != "exit" && @input != "quit"
-      @input = gets.strip
-      case @input
-      when "1"
-        puts "The breweries in your state:" 
-      when "2"
-        puts "The webiste for the brewery is:"
-      when "exit" || "quit"
-        puts "Thank you, take care."
-      break
-      else
-        "Not a valid option"
-      end
-      end
     end        
-  end
+end

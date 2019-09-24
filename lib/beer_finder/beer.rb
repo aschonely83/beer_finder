@@ -3,7 +3,7 @@ module BeerFinder
 
         attr_reader :name, :state
 
-        @@all - []
+        @@all = []
 
         def self.all
             @@all
@@ -14,10 +14,5 @@ module BeerFinder
         @state = state
         @@all << self
       end
-      
-      def get_state
-
-      end  
-    end
     end    
 end   
