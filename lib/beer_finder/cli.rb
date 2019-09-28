@@ -25,15 +25,15 @@ class BeerFinder::CLI
       API.new.import
     end
     
-    def link
-      response.each do |link, website_url|
-        puts "#{link}: $#{website_url}"
+    def by_city
+      response.each do |name, city|
+        puts "#{name}: $#{city}"
       end
     end
     
-    def brewery
-      response.each do |name, brewery|
-        puts "#{name}: $#{brewery}"
+    def by_state
+      response.each do |name, state|
+        puts "#{name}: $#{state}"
       end
     end
       
