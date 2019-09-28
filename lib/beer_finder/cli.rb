@@ -1,7 +1,7 @@
 class BeerFinder::CLI 
 
     def call
-      puts "Welcome to the Beer Finder."
+      puts "Welcome to Beer Finder."
       @input = nil
       menu
       while @input != "exit" 
@@ -20,7 +20,23 @@ class BeerFinder::CLI
         end
       end
     end
-  
+
+    def list_breweries
+      API.new.import
+    end
+    
+    def link
+      response.each do |link, website_url|
+        puts "#{link}: $#{website_url}"
+      end
+    end
+    
+    def brewery
+      response.each do |name, brewery|
+        puts "#{name}: $#{brewery}"
+      end
+    end
+      
     def menu
       puts <<-MENU
       1. Brewery by State
