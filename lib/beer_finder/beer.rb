@@ -1,18 +1,20 @@
 class BeerFinder::Beer
 
-  attr_reader :name, :brewery, :link
-
-  @@all = []
+  attr_reader :name, :state
 
   def self.all
-    @@all
-  end    
+    @@all ||= self.load
+  end
+  
+  def self.load 
+    BeerFinder::API.get_beers.collect do |beer_hash|
+      BeerFinder::Beer.new(beer_hash)
+    end
+  end      
 
-  def initialize(name, brewery, link)
-    @name = name
-    @state = state
-    @brewery = brewery
-    @@all << self
+  def initialize(attributes = {})
+    @name = attributes["name"]
+    @state = attributes["state"]
   end
 end    
    
