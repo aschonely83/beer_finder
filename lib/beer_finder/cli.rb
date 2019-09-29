@@ -9,7 +9,7 @@ class BeerFinder::CLI
         if  @input == "1"
           puts "The breweries in your state:" 
         elsif @input == "2"
-          puts "The webiste for the brewery is:"
+          puts "The city where the brewery is located is:"
         elsif @input == "menu"
           menu
         elsif @input == "exit" 
