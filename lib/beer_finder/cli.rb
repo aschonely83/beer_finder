@@ -28,17 +28,10 @@ end
      puts "#{brewery.name}"
     end
   end  
-  
-  def print_state
-    BeerFinder::Beer.all.each do |state|
-      puts "#{state.name}"
-    end
-  end
       
   def menu
     puts <<-MENU
     1. Brewery Name
-    2. Brewery State
     type "exit" at any time to leave program.
     type "menu" to return to the menu at any time.
     MENU
