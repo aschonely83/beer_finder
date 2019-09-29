@@ -24,8 +24,8 @@ class BeerFinder::CLI
 end
 
   def print_brewery
-    BeerFinder::Beer.all.each do |brewery|
-     puts "#{brewery.name}"
+    BeerFinder::Beer.all.each.with_index(1) do |brewery, index|
+     puts "#{index}. #{brewery.name}"
     end
   end  
       

@@ -6,7 +6,7 @@ class BeerFinder::API
     
       
   def self.get_beers
-    data = open("https://api.openbrewerydb.org/breweries?by_state").read
+    data = open("https://api.openbrewerydb.org/breweries").read
     JSON.parse(data)
   end
 end
