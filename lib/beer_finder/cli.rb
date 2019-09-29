@@ -26,13 +26,13 @@ class BeerFinder::CLI
     end
     
     def by_city
-      response.each do |name, city|
+      list_breweries.each do |name, city|
         puts "#{name}: $#{city}"
       end
     end
     
     def by_state
-      response.each do |name, state|
+      list_breweries.each do |name, state|
         puts "#{name}: $#{state}"
       end
     end
