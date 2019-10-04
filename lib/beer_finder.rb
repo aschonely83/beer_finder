@@ -4,6 +4,7 @@ require_relative "beer_finder/cli"
 require_relative "beer_finder/beer"
 
 module BeerFinder
-  class Error < StandardError; end
+  class Error < StandardError; 
   # Your code goes here...
+  end
 end
