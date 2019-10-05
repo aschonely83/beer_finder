@@ -7,6 +7,7 @@ class BeerFinder::CLI
     Please select a state. If you are from a state with two
     names please use snake_case. (ie. new_york or new_jersey) \n
     DOC
+    @@state = gets.strip
     menu
   end
    
@@ -14,30 +15,41 @@ class BeerFinder::CLI
     list_options
     @input = nil
     while @input != "exit"
-    @input = gets.strip
-    if  @input == "1"
-      puts "The breweries in your state:"
-      get_brewery
-    elsif @input == "list"
-      list_options
-    elsif @input == "exit"
-      puts "Thank you, have a nice day."
-      break
-    else
-      puts "Not a valid option, select 1, 2, or exit "
+      @input = gets.strip
+      if  @input == "1"
+        puts "The breweries in your state:"
+        get_brewery
+        brewery_info
+      elsif @input == "list"
+        list_options
+      elsif @input == "exit"
+        puts "Thank you, have a nice day."
+        break
+      else
+        puts "Not a valid option, select 1, 2, or exit "
+      end
     end
   end
-end
-
+   
   def get_brewery
-    BeerFinder::Beer.all.each.with_index(1) do |brewery, index|
+    BeerFinder::Beer.all(@@state).each.with_index(1) do |brewery, index|
      puts "#{index}. #{brewery.name}"
+    end
+  end
+
+  def brewery_info
+    @input = gets.chomp
+    index = @input.to_i-1
+    if index >= 0
+      puts BeerFinder::Beer.all(@@state)[@input.to_i-1].street
+      puts BeerFinder::Beer.all(@@state)[@input.to_i-1].city
+      puts BeerFinder::Beer.all(@@state)[@input.to_i-1].website_url
     end
   end
      
   def list_options
     puts <<-LIST 
-    1. Brewery Name
+    1. Brewery Info
     type "exit" at any time to leave program.
     type "list" to return to the list of options at any time.
     LIST

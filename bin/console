@@ -2,8 +2,6 @@
 require "bundler"
 require "bundler/setup"
 require_relative "beer_finder"
-require "open-uri"
-require "json"
 require "pry"
 
 # You can add fixtures and/or initialization code here to make experimenting
