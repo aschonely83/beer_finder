@@ -7,7 +7,7 @@ class BeerFinder::Beer
   end
   
   def self.load 
-    BeerFinder::API.get_beers.collect do |beer_hash|
+    BeerFinder::API.get_breweries.collect do |beer_hash|
       BeerFinder::Beer.new(beer_hash)
     end
   end      
