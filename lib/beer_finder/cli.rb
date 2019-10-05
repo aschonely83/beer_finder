@@ -18,7 +18,8 @@ class BeerFinder::CLI
       @input = gets.strip
       if  @input == "1"
         puts "The breweries in your state:"
-        get_brewery
+        get_brewery 
+        puts "What brewery would you like more information about?"
         brewery_info
       elsif @input == "list"
         list_options
