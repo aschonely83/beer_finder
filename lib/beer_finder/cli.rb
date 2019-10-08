@@ -23,6 +23,8 @@ class BeerFinder::CLI
         brewery_info
       elsif @input == "list"
         list_options
+      elsif @input == "main menu"
+        call  
       elsif @input == "exit"
         puts "Thank you, have a nice day."
         break
@@ -46,13 +48,15 @@ class BeerFinder::CLI
       puts BeerFinder::Beer.all(@@state)[@input.to_i-1].city
       puts BeerFinder::Beer.all(@@state)[@input.to_i-1].website_url
     end
+    list_options
   end
      
   def list_options
     puts <<-LIST 
-    1. Brewery Info
-    type "exit" at any time to leave program.
-    type "list" to return to the list of options at any time.
+    type "1" for Brewery Info
+    type "list" to return to the list of options at any time
+    type "main menu" to search a new state
+    type "exit" at any time to leave program
     LIST
-  end
+  end  
 end   
