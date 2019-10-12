@@ -2,15 +2,19 @@ class BeerFinder::CLI
 
   def call
     puts "Welcome to Beer Finder" 
+    get_state
+    menu
+  end
+   
+  def get_state
     puts <<-DOC
     What state would you like to search breweries for?
     Please select a state. If you are from a state with two
     names please use snake_case. (ie. new_york or new_jersey) \n
     DOC
     @@state = gets.strip
-    menu
-  end
-   
+  end  
+
   def menu
     list_options
     @input = nil
@@ -24,15 +28,24 @@ class BeerFinder::CLI
       elsif @input == "list"
         list_options
       elsif @input == "main menu"
-        call  
+        get_state  
       elsif @input == "exit"
-        puts "Thank you, have a nice day."
         break
       else
-        puts "Not a valid option, select 1, 2, or exit "
+        puts "Not a valid option, 1, list, main menu or exit "
       end
     end
+    puts "Thank you, have a nice day."
   end
+
+  def list_options
+    puts <<-LIST 
+    type "1" for Brewery Info
+    type "list" to return to the list of options at any time
+    type "main menu" to search a new state
+    type "exit" at any time to leave program
+    LIST
+  end  
    
   def get_brewery
     BeerFinder::Beer.all(@@state).each.with_index(1) do |brewery, index|
@@ -43,20 +56,13 @@ class BeerFinder::CLI
   def brewery_info
     @input = gets.chomp
     index = @input.to_i-1
-    if index >= 0
-      puts BeerFinder::Beer.all(@@state)[@input.to_i-1].street
-      puts BeerFinder::Beer.all(@@state)[@input.to_i-1].city
-      puts BeerFinder::Beer.all(@@state)[@input.to_i-1].website_url
+    if index >= 0 && index < BeerFinder::Beer.count(@@state)
+      puts BeerFinder::Beer.all(@@state)[index].street
+      puts BeerFinder::Beer.all(@@state)[index].city
+      puts BeerFinder::Beer.all(@@state)[index].website_url
+    else
+     puts "I didn't understand that." unless @input == "exit"
     end
-    list_options
+    list_options unless @input == "exit"
   end
-     
-  def list_options
-    puts <<-LIST 
-    type "1" for Brewery Info
-    type "list" to return to the list of options at any time
-    type "main menu" to search a new state
-    type "exit" at any time to leave program
-    LIST
-  end  
 end   

@@ -2,8 +2,10 @@ class BeerFinder::Beer
 
   attr_reader :name, :state, :street, :city, :website_url
 
+  @@all ={}
+
   def self.all(state)
-    @@all ||= self.load_by_state(state)
+    @@all[state] ||= self.load_by_state(state)
   end
   
   def self.load_by_state(state) 
@@ -12,8 +14,8 @@ class BeerFinder::Beer
     end
   end 
   
-  def self.count
-    @@all.try(:count) || 0
+  def self.count(state)
+    @@all[state].count || 0
   end   
 
   def initialize(attributes = {})
