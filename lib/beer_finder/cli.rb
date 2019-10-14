@@ -28,7 +28,8 @@ class BeerFinder::CLI
       elsif @input == "list"
         list_options
       elsif @input == "main menu"
-        get_state  
+        get_state
+        list_options  
       elsif @input == "exit"
         break
       else
