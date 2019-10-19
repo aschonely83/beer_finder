@@ -1,5 +1,5 @@
 class BeerFinder::CLI 
-
+    require 'pry'
   def call
     puts "Welcome to Beer Finder" 
     get_state
@@ -13,6 +13,7 @@ class BeerFinder::CLI
     names please use snake_case. (ie. new_york or new_jersey) \n
     DOC
     @@state = gets.strip
+    valid_state
   end  
 
   def menu
@@ -46,11 +47,18 @@ class BeerFinder::CLI
     type "main menu" to search a new state
     type "exit" at any time to leave program
     LIST
-  end  
+  end 
+  
+  def valid_state
+    if BeerFinder::API::STATES.include?(@@state) 
+    else
+      puts "Oops something doesn't look right, please try that again."    
+    end 
+  end
    
   def get_brewery
     BeerFinder::Beer.all(@@state).each.with_index(1) do |brewery, index|
-     puts "#{index}. #{brewery.name}"
+      puts "#{index}. #{brewery.name}"
     end
   end
 
@@ -62,7 +70,7 @@ class BeerFinder::CLI
       puts BeerFinder::Beer.all(@@state)[index].city
       puts BeerFinder::Beer.all(@@state)[index].website_url
     else
-     puts "I didn't understand that." unless @input == "exit"
+      puts "I didn't understand that." unless @input == "exit"
     end
     list_options unless @input == "exit"
   end
