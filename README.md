@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Once installed you can find the name, address, city and state of breweries in the United States.
+Once installed you can find the name, address, city,state and website of breweries in the United States.
 
 ## Development
 
