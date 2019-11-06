@@ -1,8 +1,6 @@
 # BeerFinder
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/beer_finder`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Beer Finder Gem. You are able to use the cli to access information about breweies through the Open Brewery DB.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once installed you can find the name, address, city and state of breweries in the United States.
 
 ## Development
 
