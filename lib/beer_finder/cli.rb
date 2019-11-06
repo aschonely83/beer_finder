@@ -1,5 +1,5 @@
 class BeerFinder::CLI 
-    require 'pry'
+    
   def call
     puts "Welcome to Beer Finder" 
     get_state
