@@ -1,6 +1,6 @@
 # BeerFinder
 
-Welcome to the Beer Finder Gem. You are able to use the cli to access information about breweies through the Open Brewery DB.
+Welcome to the Beer Finder Gem. You are able to use the cli to access information about breweries through the Open Brewery DB.
 
 ## Installation
 
